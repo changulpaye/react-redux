@@ -9,7 +9,7 @@ export default function ConfigureStore() {
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware()
-        .concat(toastify)
+        .concat(toastify) // toastify.
         .concat(logger({ destination: "console" }))
         .concat(api),
   });

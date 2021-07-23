@@ -1,8 +1,10 @@
-const logger = (store) => (next) => (action) => {
+import { toast } from 'react-toastify';
+
+const toastify = (store) => (next) => (action) => {
   console.log("action", action);
-  if (action.type === "error")
-    console.log(`Toastify - ${action.payload.message}`);
+  if (action.type === "error" || action.type === 'api/callFailed')
+    toast.error(action.payload.error);
   else return next(action);
 };
 
-export default logger;
+export default toastify;
